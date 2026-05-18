@@ -133,3 +133,45 @@
     }
 }
 
+/* Estilos del componente pie de pagina */
+:host(.hotel-footer) {
+    display: block; /* para que el footer ocupe todo el ancho disponible */ 
+    background: linear-gradient(
+        135deg,
+        rgba(15, 30, 20, 0.95) 0%,
+        rgba(30, 55, 35, 0.9) 100%
+    ); /* fondo con degradado y transparencia */
+    color: #a8c3ab; /* color verde claro para el texto del footer */
+    font-family: 'Inter', sans-serif; /* letra moderna para el texto del footer */
+    border-top: 1px solid rgba(170, 234, 246, 0.412); /* borde superior con color azul y transparencia */
+
+}
+/* estilo para el contenedor del contenido del pie de pagina*/
+.footer-container {
+    max-width: 1200px; /* ancho máximo del contenido del footer */
+    margin: 0 auto; /* para centrar el contenido del footer horizontalmente */
+    padding: 1rem 1.5rem; /* espacio interno del footer */
+    display:grid; /* para organizar el contenido del footer en una cuadrícula */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* para crear columnas flexibles que se ajusten al tamaño del contenido */
+    gap: 2rem; /* espacio entre las columnas del footer */
+}
+
+h3 {
+    font-family: 'Playfair Display', serif; /* letra elegante para los títulos del footer */
+    color: #cde4d1; /* color verde claro para los títulos del footer */
+    margin-bottom: 1rem; /* espacio debajo de los títulos del footer */
+}
+
+p,
+a {
+    color: #a8c3ab; /* color verde claro para el texto y los enlaces del footer */
+    line-height: 1.6; /* para mejorar la legibilidad del texto del footer */
+    text-decoration: none; /* sin subrayado para los enlaces del footer */
+}
+
+a:hover {
+    color: #ffffff; /* color blanco para los enlaces del footer al pasar el mouse por encima */
+}
+
+
+
