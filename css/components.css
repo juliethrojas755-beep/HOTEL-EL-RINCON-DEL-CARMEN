@@ -223,3 +223,28 @@ a:hover {
 }
 
 
+.modal-overlay.active .modal-content {
+    transform: translateY(0); /* para que el contenido del modal se desplace hacia abajo al mostrar el modal */
+}
+
+.close-btn {
+    position: absolute; /* para posicionar el botón de cerrar en la esquina superior derecha del contenido del modal */
+    top: 10px; /* para alinear el botón de cerrar a la parte superior del contenido del modal */
+    right: 15px; /* para alinear el botón de cerrar a la parte derecha del contenido del modal */
+    background: none; /* sin fondo para el botón de cerrar */
+    border: none; /* sin borde para el botón de cerrar */
+    color: #a8c3ab; /* color verde claro para el ícono del botón de cerrar */
+    font-size: 1.5rem; /* tamaño de fuente para el ícono del botón de cerrar */
+    cursor: pointer; /* cursor de mano para indicar que es un botón */
+}
+
+.modal-title {
+    font-family: 'Playfair Display', serif; /* letra elegante para el título del modal */
+    color: #cde4d1; /* color verde claro para el título del modal */
+    margin-top: 0; /* para eliminar el margen superior del título del modal */
+    margin-bottom: 1rem; /* espacio debajo del título del modal */
+}
+
+.modal-body {
+    color: #a8c3ab; /* color verde claro para el texto del cuerpo del modal */
+}
