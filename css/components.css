@@ -155,22 +155,38 @@
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* para crear columnas flexibles que se ajusten al tamaño del contenido */
     gap: 2rem; /* espacio entre las columnas del footer */
 }
-
+/* estilo para los títulos del footer */
 h3 {
     font-family: 'Playfair Display', serif; /* letra elegante para los títulos del footer */
     color: #cde4d1; /* color verde claro para los títulos del footer */
     margin-bottom: 1rem; /* espacio debajo de los títulos del footer */
 }
-
+/* estilo para los párrafos y enlaces del footer */
 p,
 a {
     color: #a8c3ab; /* color verde claro para el texto y los enlaces del footer */
     line-height: 1.6; /* para mejorar la legibilidad del texto del footer */
     text-decoration: none; /* sin subrayado para los enlaces del footer */
 }
-
+/* estilo para los enlaces del footer al pasar el mouse por encima */
 a:hover {
     color: #ffffff; /* color blanco para los enlaces del footer al pasar el mouse por encima */
+}
+
+/* estilo para la sección inferior del footer */
+.footer-bottom {
+    background-color: #1f3822; /* fondo oscuro para la sección inferior del footer */
+    text-align: center; /* para centrar el texto en la sección inferior del footer */
+    padding: 1rem; /* espacio interno para la sección inferior del footer */
+    font-size: 0.9rem; /* tamaño de fuente más pequeño para la sección inferior del footer */
+    border-top: 1px solid rgba(170, 234, 246, 0.412); /* borde superior para la sección inferior del footer */
+}
+/* estilo para los enlaces sociales en el footer */
+.social-links {
+    display: flex; /* para organizar los enlaces sociales en una fila horizontal */
+    gap: 1rem; /* espacio entre los enlaces sociales */
+    justify-content: center; /* para centrar los enlaces sociales horizontalmente */
+    margin-top: 1rem; /* espacio encima de los enlaces sociales */
 }
 
 
