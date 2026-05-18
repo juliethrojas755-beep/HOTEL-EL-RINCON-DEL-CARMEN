@@ -3,8 +3,12 @@
 :host(.hotel-navbar) {
   /*bloque completo */
   display: block;
-   /* fondo con transparencia */
-  background-color: rgba(18,18,18,0.85);
+ /* fondo con degradado y transparencia */
+  background: linear-gradient(
+    135deg,
+    rgba(15, 30, 20, 0.95) 0%,
+    rgba(30, 55, 35, 0.9) 100%
+  );
     /* efecto de desenfoque */
   backdrop-filter: blur(10px);
     /* para navegadores que no soportan backdrop-filter */
@@ -34,6 +38,98 @@
     font-family: playfair display, serif; /* letra elegante para el logo */
     font-size: 1.5rem; /* tamaño de fuente para el logo */
     font-weight: 700; /* texto gruesopara el logo */
-    color: rgba(0, 0, 255, 0.373); /* color azul para el logo */
+    color: #cde4d1; /* color verde claro para el logo */
     text-decoration: none; /* sin subrayado para el logo */
 }
+
+.navbar-links {
+    display: flex; /* para organizar los enlaces en una fila horizontal */
+    gap: 1.5rem; /* espacio entre los enlaces */
+    align-items: center; /* para centrar verticalmente los enlaces */
+    list-style: none; /* para eliminar los puntos de la lista */
+    margin: 0; /* para eliminar el margen de la lista */
+    padding: 0; /* para eliminar el padding de la lista */
+}
+
+/* estilo para los enlaces del navbar */
+.nav-link {
+    color: #a8c3ab; /* color verde claro para los enlaces */
+    text-decoration: none; /* sin subrayado para los enlaces */
+    font-family: 'Inter', sans-serif; /* letra moderna para los enlaces */
+    font-weight: 500; /* texto semigrueso para los enlaces */
+    transition: color 0.3s ease; /* transición suave para el cambio de color */
+
+}
+
+/* estilo para los enlaces del navbar al pasar el mouse por encima */
+.nav-link:hover {
+    color: #ffffff; 
+}
+
+/* Boton de iniciar sesión */
+.btn-login {
+    background-color: #1f3822;
+    border: 2px solid rgba(114, 155, 121, 0.5);/* borde con color verde y transparencia */
+    color: #cde4d1;/* color verde claro para el texto del botón */
+    padding: 0.5rem 1rem;/* espacio interno del botón */
+    border-radius: 4px;/* bordes redondeados para el botón */
+    font-family: 'Inter', sans-serif;/* letra moderna para el texto del botón */
+    font-weight: 500;/* texto semigrueso para el texto del botón */
+    cursor: pointer;/* cursor de mano para indicar que es un botón */
+    transition: all 0.3s ease;/* transición suave para el cambio de estilo al pasar el mouse por encima */
+}
+
+/* estilo para el botón de iniciar sesión al pasar el mouse por encima */
+.btn-login:hover {
+   background-color: #3d5f45; 
+}
+
+/* Informacion del usuario */
+.user-info {
+    display: flex; /* para organizar la información del usuario en una fila horizontal */
+    align-items: center; /* para centrar verticalmente la información del usuario */
+    gap: 0.5rem; /* espacio entre el avatar y el nombre del usuario */
+    font-family: 'Inter', sans-serif; /* letra moderna para la información del usuario */
+}
+
+/*m= menu toggle para dispositivos móviles */
+.menu-toggle {
+    display: none; /* ocultar el botón de menú en pantallas grandes */
+    background: none; /* sin fondo para el botón de menú */
+    border: none; /* sin borde para el botón de menú */
+    color: #a8c3ab; /* color verde claro para el ícono del menú */
+    font-size: 1.5rem; /* tamaño de fuente para el ícono del menú */
+    cursor: pointer; /* cursor de mano para indicar que es un botón */
+}
+
+/* estilos para dispositivos móviles */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* mostrar el botón de menú en pantallas pequeñas */
+    }
+    .navbar-links {
+        display: none; /* ocultar los enlaces del navbar en pantallas pequeñas */
+        flex-direction: column; /* organizar los enlaces en una columna */
+        gap: 1rem; /* espacio entre los enlaces en la columna */
+        position: absolute; /* para posicionar el menú desplegable */
+        top: 100%; /* para colocar el menú desplegable justo debajo del navbar */
+        left: 0; /* para alinear el menú desplegable a la izquierda */
+        right: 0; /* para alinear el menú desplegable a la derecha */
+        background-color: linear-gradient(
+        135deg,
+        rgba(15, 30, 20, 0.98) 0%,
+        rgba(30, 55, 35, 0.95) 100%
+        ); /* fondo con degradado y transparencia para el menú desplegable */
+        backdrop-filter: blur(10px); /* efecto de desenfoque para el menú desplegable */
+        padding: 1rem; /* espacio interno para el menú desplegable */
+        border-bottom: #3d5f45 1px solid; /* borde inferior para el menú desplegable */
+    }
+    .navbar-links.active {
+        display: flex; /* mostrar los enlaces del navbar cuando el menú esté activo */
+    }
+    .user-info {
+        flex-direction: column; /* organizar la información del usuario en una columna en pantallas pequeñas */
+        align-items: flex-start; /* alinear la información del usuario a la izquierda en pantallas pequeñas */
+    }
+}
+
