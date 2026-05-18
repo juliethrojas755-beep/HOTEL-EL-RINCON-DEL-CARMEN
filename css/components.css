@@ -189,5 +189,37 @@ a:hover {
     margin-top: 1rem; /* espacio encima de los enlaces sociales */
 }
 
+.modal-overlay {
+    display: none; /* ocultar el modal por defecto */
+    position: fixed; /* para que el modal se posicione sobre todo el contenido */
+    top: 0; /* para alinear el modal a la parte superior de la pantalla */
+    left: 0; /* para alinear el modal a la parte izquierda de la pantalla */
+    right: 0; /* para alinear el modal a la parte derecha de la pantalla */
+    bottom: 0; /* para alinear el modal a la parte inferior de la pantalla */
+    background-color: rgba(0, 0, 0, 0.5); /* fondo semitransparente para el modal */
+    z-index: 2000; /* para asegurarse de que el modal esté por encima de otros elementos */
+    align-items: center; /* para centrar el contenido del modal verticalmente */
+    justify-content: center; /* para centrar el contenido del modal horizontalmente */ 
+    opacity: 0; /* para hacer el modal invisible por defecto */
+    transition: opacity 0.3s ease; /* transición suave para mostrar el modal */
+}
+/* estilo para mostrar el modal cuando esté activo */
+.modal-overlay.active {
+    display: flex; /* mostrar el modal cuando esté activo */
+    opacity: 1; /* hacer el modal visible cuando esté activo */
+}
+
+.modal-content {
+    background-color: #1f3822; /* fondo oscuro para el contenido del modal */
+    padding: 2rem; /* espacio interno para el contenido del modal */
+    border-radius: 8px; /* bordes redondeados para el contenido del modal */
+    max-width: 500px; /* ancho máximo para el contenido del modal */
+    width: 90%; /* para que el contenido del modal ocupe todo el ancho disponible */
+    box-shadow: #a8c3ab 0px 10px 25px; /* sombra para el contenido del modal con color verde claro */
+    transform: translateY(-20px);
+    transition: transform 0.3s ease; /* transición suave para el efecto de entrada del contenido del modal */
+    position: relative; /* para posicionar el botón de cerrar dentro del contenido del modal */
+    font-family: 'Inter', sans-serif; /* letra moderna para el contenido del modal */
+}
 
 
