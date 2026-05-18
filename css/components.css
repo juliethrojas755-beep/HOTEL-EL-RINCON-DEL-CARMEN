@@ -1,0 +1,39 @@
+/* === Navbar (hotel-navbar) Barra de navegacion === */
+/* estilo al componente de hotel-navbar */
+:host(.hotel-navbar) {
+  /*bloque completo */
+  display: block;
+   /* fondo con transparencia */
+  background-color: rgba(18,18,18,0.85);
+    /* efecto de desenfoque */
+  backdrop-filter: blur(10px);
+    /* para navegadores que no soportan backdrop-filter */
+  -webkit-backdrop-filter: blur();
+  color: white;
+   /* para que el navbar se quede fijo en la parte superior al hacer scroll */
+  position: sticky;
+   /* para asegurar que el navbar se quede en la parte superior */
+  top: 0;
+  z-index: 1000; /* para asegurarse de que el navbar esté por encima de otros elementos */
+  border-bottom: 1px solid rgba(170, 234, 246, 0.412); /* borde inferior con color azul y transparencia */
+
+}
+
+.navbar {
+     /* para organizar los elementos del navbar en una fila horizontal */
+    display: flex;
+    justify-content: space-between; /* para separar los elementos a los extremos */
+    align-items: center; /* para centrar verticalmente los elementos */
+    padding: 1rem 1.5rem; /* espacio interno del navbar */
+    max-width: 1200px; /* ancho máximo del navbar */
+    margin: 0 auto; /* para centrar el navbar horizontalmente */
+
+}
+
+.logo {
+    font-family: playfair display, serif; /* letra elegante para el logo */
+    font-size: 1.5rem; /* tamaño de fuente para el logo */
+    font-weight: 700; /* texto gruesopara el logo */
+    color: rgba(0, 0, 255, 0.373); /* color azul para el logo */
+    text-decoration: none; /* sin subrayado para el logo */
+}
