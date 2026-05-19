@@ -6,7 +6,7 @@ export const INITIAL_ROOMS = [
     maxGuests: 2,
     pricePerNight: 150000,
     services: ['internet', 'tv'],
-    images: ['assets/rooms/single.png'],
+    images: ['room_luxury.webp'],
     active: true,
   },
   {
@@ -16,7 +16,7 @@ export const INITIAL_ROOMS = [
     maxGuests: 4,
     pricePerNight: 250000,
     services: ['internet', 'tv', 'minibar'],
-    images: ['assets/rooms/double.png'],
+    images: ['room_luxury.webp'],
     active: true,
   },
   {
@@ -26,127 +26,7 @@ export const INITIAL_ROOMS = [
     maxGuests: 2,
     pricePerNight: 500000,
     services: ['internet', 'tv', 'minibar', 'jacuzzi', 'balcon'],
-    images: ['assets/rooms/suite.png'],
-    active: true,
-  },
-  {
-    id: 'room-4',
-    name: 'Habitación Individual',
-    beds: 1,
-    maxGuests: 1,
-    pricePerNight: 100000,
-    services: ['internet', 'tv'],
-    images: ['assets/rooms/single.png'],
-    active: true,
-  },
-  {
-    id: 'room-5',
-    name: 'Habitación Individual Superior',
-    beds: 1,
-    maxGuests: 1,
-    pricePerNight: 120000,
-    services: ['internet', 'tv', 'minibar'],
-    images: ['assets/rooms/single.png'],
-    active: true,
-  },
-  {
-    id: 'room-6',
-    name: 'Habitación Doble Económica',
-    beds: 1,
-    maxGuests: 2,
-    pricePerNight: 180000,
-    services: ['internet', 'tv'],
-    images: ['assets/rooms/double.png'],
-    active: true,
-  },
-  {
-    id: 'room-7',
-    name: 'Habitación Doble Superior',
-    beds: 2,
-    maxGuests: 2,
-    pricePerNight: 220000,
-    services: ['internet', 'tv', 'minibar'],
-    images: ['assets/rooms/double.png'],
-    active: true,
-  },
-  {
-    id: 'room-8',
-    name: 'Habitación Triple',
-    beds: 3,
-    maxGuests: 3,
-    pricePerNight: 280000,
-    services: ['internet', 'tv', 'minibar'],
-    images: ['assets/rooms/double.png'],
-    active: true,
-  },
-  {
-    id: 'room-9',
-    name: 'Habitación Cuádruple',
-    beds: 4,
-    maxGuests: 4,
-    pricePerNight: 350000,
-    services: ['internet', 'tv', 'minibar', 'balcon'],
-    images: ['assets/rooms/suite.png'],
-    active: true,
-  },
-  {
-    id: 'room-10',
-    name: 'Suite Junior',
-    beds: 1,
-    maxGuests: 2,
-    pricePerNight: 300000,
-    services: ['internet', 'tv', 'minibar', 'sofa'],
-    images: ['assets/rooms/suite.png'],
-    active: true,
-  },
-  {
-    id: 'room-11',
-    name: 'Suite Familiar',
-    beds: 3,
-    maxGuests: 5,
-    pricePerNight: 450000,
-    services: ['internet', 'tv', 'minibar', 'cocina', 'balcon'],
-    images: ['assets/rooms/suite.png'],
-    active: true,
-  },
-  {
-    id: 'room-12',
-    name: 'Suite Nupcial',
-    beds: 1,
-    maxGuests: 2,
-    pricePerNight: 550000,
-    services: ['internet', 'tv', 'minibar', 'jacuzzi', 'champagne'],
-    images: ['assets/rooms/suite.png'],
-    active: true,
-  },
-  {
-    id: 'room-13',
-    name: 'Ático de Lujo',
-    beds: 2,
-    maxGuests: 4,
-    pricePerNight: 700000,
-    services: ['internet', 'tv', 'minibar', 'jacuzzi', 'terraza privada'],
-    images: ['assets/rooms/suite.png'],
-    active: true,
-  },
-  {
-    id: 'room-14',
-    name: 'Habitación Deluxe con Balcón',
-    beds: 1,
-    maxGuests: 2,
-    pricePerNight: 260000,
-    services: ['internet', 'tv', 'minibar', 'balcon'],
-    images: ['assets/rooms/suite.png'],
-    active: true,
-  },
-  {
-    id: 'room-15',
-    name: 'Cabaña Rústica',
-    beds: 2,
-    maxGuests: 4,
-    pricePerNight: 320000,
-    services: ['internet', 'tv', 'chimenea', 'cocina'],
-    images: ['assets/rooms/suite.png'],
+    images: ['room_luxury.webp'],
     active: true,
   }
 ];
@@ -170,43 +50,6 @@ class StorageService {
   initData() {
     if (!localStorage.getItem('hotel_rooms')) {
       localStorage.setItem('hotel_rooms', JSON.stringify(INITIAL_ROOMS));
-    } else {
-      let rooms = JSON.parse(localStorage.getItem('hotel_rooms'));
-      let updated = false;
-
-      // Parche para la imagen rota de la Suite Presidencial
-      rooms = rooms.map(room => {
-        if (room.id === 'room-3' && room.images && room.images[0] && room.images[0].includes('photo-1582719478250-c89404bb8a0e')) {
-          room.images[0] = 'https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&q=80&w=800';
-          updated = true;
-        }
-        return room;
-      });
-
-      
-      // Actualizar todas las imágenes para que coincidan con INITIAL_ROOMS (diseño luxury)
-      let needsSave = false;
-      rooms = rooms.map(room => {
-        const initial = INITIAL_ROOMS.find(r => r.id === room.id);
-        if (initial && initial.images[0] !== room.images[0]) {
-          room.images = initial.images;
-          needsSave = true;
-        }
-        return room;
-      });
-      if (needsSave) updated = true;
-
-      // Añadir habitaciones nuevas que no estén en el localStorage
-      for (const initialRoom of INITIAL_ROOMS) {
-        if (!rooms.find(r => r.id === initialRoom.id)) {
-          rooms.push(initialRoom);
-          updated = true;
-        }
-      }
-
-      if (updated) {
-        localStorage.setItem('hotel_rooms', JSON.stringify(rooms));
-      }
     }
     if (!localStorage.getItem('hotel_users')) {
       localStorage.setItem('hotel_users', JSON.stringify([INITIAL_ADMIN]));

@@ -3,10 +3,13 @@ import './components/Navbar.js';
 import './components/Footer.js';
 import './components/Modal.js';
 
-// Import Vistas (se crearán en la Fase 3 y 4)
-// import './pages/HomePage.js';
-// import './pages/AvailabilityPage.js';
-// ... etc
+// Import Vistas
+import './pages/HomePage.js';
+import './pages/AvailabilityPage.js';
+import './pages/ContactPage.js';
+import './pages/AuthPages.js';
+import './pages/UserProfilePage.js';
+import './pages/AdminDashboard.js';
 
 class AppRouter {
   constructor() {
@@ -19,32 +22,31 @@ class AppRouter {
 
   handleRoute() {
     const hash = window.location.hash || '#home';
-    const path = hash.substring(1); // remueve el '#'
+    const path = hash.substring(1);
     
     this.appContainer.innerHTML = ''; // Limpiar contenedor
 
     switch (path) {
       case 'home':
-        this.appContainer.innerHTML = '<h2>Página de Inicio (En construcción)</h2>';
-        // this.appContainer.appendChild(document.createElement('home-page'));
+        this.appContainer.appendChild(document.createElement('home-page'));
         break;
       case 'availability':
-        this.appContainer.innerHTML = '<h2>Disponibilidad (En construcción)</h2>';
+        this.appContainer.appendChild(document.createElement('availability-page'));
         break;
       case 'contact':
-        this.appContainer.innerHTML = '<h2>Contacto (En construcción)</h2>';
+        this.appContainer.appendChild(document.createElement('contact-page'));
         break;
       case 'login':
-        this.appContainer.innerHTML = '<h2>Login (En construcción)</h2>';
+        this.appContainer.appendChild(document.createElement('login-page'));
         break;
       case 'register':
-        this.appContainer.innerHTML = '<h2>Registro (En construcción)</h2>';
+        this.appContainer.appendChild(document.createElement('register-page'));
         break;
       case 'profile':
-        this.appContainer.innerHTML = '<h2>Perfil (En construcción)</h2>';
+        this.appContainer.appendChild(document.createElement('user-profile'));
         break;
       case 'admin':
-        this.appContainer.innerHTML = '<h2>Panel Admin (En construcción)</h2>';
+        this.appContainer.appendChild(document.createElement('admin-dashboard'));
         break;
       default:
         this.appContainer.innerHTML = '<h2>Página no encontrada</h2>';
