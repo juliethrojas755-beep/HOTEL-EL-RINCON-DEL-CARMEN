@@ -1,11 +1,11 @@
 // Import Componentes
-import './components/Navbar.js';
-import './components/Footer.js';
-import './components/Modal.js';
+import './js/components/Navbar.js';
+import './js/components/Footer.js';
+import './js/components/Modal.js';
 
 // Import Vistas (se crearán en la Fase 3 y 4)
-// import './pages/HomePage.js';
-// import './pages/AvailabilityPage.js';
+// import './js/pages/HomePage.js';
+// import './js/pages/AvailabilityPage.js';
 // ... etc
 
 class AppRouter {
