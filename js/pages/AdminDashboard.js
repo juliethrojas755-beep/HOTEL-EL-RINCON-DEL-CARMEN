@@ -1,51 +1,84 @@
+// AdminDashboard.js - Componente para el panel de administración
 import { storageService } from '../services/StorageService.js';
 
+// Este componente permite a los administradores gestionar habitaciones y reservas
 class AdminDashboard extends HTMLElement {
+  // Estado interno para controlar la pestaña activa y la habitación en edición
   constructor() {
+    // Llamada al constructor de HTMLElement
     super();
+    // Crear un shadow DOM para encapsular estilos y estructura
     this.attachShadow({ mode: 'open' });
+    // Pestaña activa: 'rooms' para gestión de habitaciones, 'reservations' para gestión de reservas
     this.currentTab = 'rooms'; // 'rooms' o 'reservations'
+    // ID de la habitación que se está editando (null si no se está editando ninguna)
     this.editingRoomId = null;
   }
 
+  // Verificar que el usuario es admin al conectar el componente
   connectedCallback() {
+    // Verificar rol de usuario
     const user = JSON.parse(sessionStorage.getItem('logged_user'));
+    // Si no hay usuario o el rol no es admin, redirigir a home
     if (!user || user.rol !== 'admin') {
+      // Redirigir a home si no es admin
       window.location.hash = '#home';
+      // Mostrar mensaje de acceso denegado (opcional)
+      window.showModal('Acceso Denegado', '<p class="alert alert-danger">No tienes permisos para acceder a esta sección.</p>');
       return;
     }
+    // Si es admin, renderizar el panel
     this.render();
+    // Configurar listeners para interacciones dentro del panel
     this.setupListeners();
   }
 
+  // Configurar listeners para botones y formularios dentro del panel
   setupListeners() {
+    // Delegación de eventos para manejar clicks en botones y envíos de formularios
     this.shadowRoot.addEventListener('click', (e) => {
       // Tab switching
+      // Si se hace click en un botón de pestaña, cambiar la pestaña activa
       if (e.target.matches('.tab-btn')) {
+        // Cambiar la pestaña activa según el botón clickeado
         this.currentTab = e.target.dataset.tab;
+        // Limpiar cualquier estado de edición al cambiar de pestaña
         this.render();
       }
 
       // Rooms management
+      // Si se hace click en un botón de eliminar habitación, confirmar y eliminar
       if (e.target.matches('.btn-delete-room')) {
+        // Confirmar antes de eliminar la habitación
         if(confirm('¿Seguro de eliminar esta habitación?')) {
+          // Eliminar habitación usando el servicio de almacenamiento
           storageService.deleteRoom(e.target.dataset.id);
+          // Re-renderizar para actualizar la lista de habitaciones
           this.render();
         }
       }
+      // Si se hace click en un botón de editar habitación, cargar los datos en el formulario
       if (e.target.matches('.btn-edit-room')) {
+        // Establecer el ID de la habitación que se va a editar
         this.editingRoomId = e.target.dataset.id;
         this.render(); // Re-render para mostrar el formulario con los datos cargados
       }
+      // Si se hace click en el botón de cancelar edición, limpiar el estado de edición
       if (e.target.matches('#cancel-edit-room')) {
+        // Limpiar el ID de la habitación en edición para volver al modo de creación
         this.editingRoomId = null;
+        // Re-render para mostrar el formulario vacío
         this.render();
       }
 
       // Reservations management
+      // Si se hace click en un botón de cancelar reserva, confirmar y cancelar
       if (e.target.matches('.btn-cancel-res')) {
+        // Confirmar antes de cancelar la reserva
         if(confirm('¿Seguro de cancelar esta reserva?')) {
+          // Cancelar reserva usando el servicio de almacenamiento
           storageService.cancelReservation(e.target.dataset.id);
+          // Re-renderizar para actualizar la lista de reservas
           this.render();
         }
       }

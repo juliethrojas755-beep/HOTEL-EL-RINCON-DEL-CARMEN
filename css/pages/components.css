@@ -19,7 +19,7 @@
    /* para asegurar que el navbar se quede en la parte superior */
   top: 0;
   z-index: 1000; /* para asegurarse de que el navbar esté por encima de otros elementos */
-  border-bottom: 1px solid rgba(170, 234, 246, 0.412); /* borde inferior con color azul y transparencia */
+  border-bottom: 1px solid rgba(170, 246, 197, 0.412); /* borde inferior con color verde y transparencia */
 
 }
 
