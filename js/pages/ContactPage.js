@@ -52,12 +52,14 @@ class ContactPage extends HTMLElement {
         </div>
 
         <div class="map-container">
-          <!-- Mapa simulado embebido con iframe -->
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m3!1d127242.78457018318!2d-74.1524301!3d4.6482837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9bfd2da6cb29%3A0x239d635520a33914!2sBogot%C3%A1%2C%20Colombia!5e0!3m2!1sen!2sus!4v1699999999999!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <!-- Mapa embebido funcional -->
+          <iframe src="https://maps.google.com/maps?q=Calle+123+45-67,+Bogot%C3%A1,+Colombia&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
     `;
+  
   }
+
 }
 
 customElements.define('contact-page', ContactPage);
